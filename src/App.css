@@ -2,11 +2,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import url('https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
 @layer base {
     body {
-        @apply font-[Ramabhadra];
+        @apply font-[sans-serif];
     }
     li {
         @apply px-4;

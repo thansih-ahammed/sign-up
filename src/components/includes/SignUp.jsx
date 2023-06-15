@@ -1,8 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import Swal from 'sweetalert2';
+import axios from 'axios';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 export default function SignUp() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    date: "",
+    class: "",
+    division: "",
+    gender: "",
+  });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const { name, date, class: selectedClass, division, gender } = formData;
+  
+    try {
+      // Send POST request to server
+      const response = await axios.post('YOUR_API_ENDPOINT', {
+        name,
+        date,
+        class: selectedClass,
+        division,
+        gender,
+      });
+  
+      // Handle success response
+      console.log(response.data); // Log the response data
+  
+      // Show success popup
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Form submitted successfully!',
+        confirmButtonText: 'OK',
+      }).then(() => {
+        // Do something after the user clicks "OK" in the success popup
+        // For example, you can redirect the user to another page
+        window.location.href = '/thank-you-page';
+      });
+    } catch (error) {
+      // Handle error response
+      console.error(error);
+  
+      // Show error popup
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An error occurred. Please try again.',
+        confirmButtonText: 'OK',
+      });
+    }
+  };
+
   return (
-    <section className="h-screen  px-4 items-center bg-gradient-to-br from-blue-500 to-green-500 flex flex-wrap justify-around  ">
+    <section className="  sm:h-screen px-4 items-center bg-gradient-to-br from-blue-500 to-green-500 flex flex-wrap justify-around  ">
       {/* Container */}
       <div className="sm:max-w-xl  sm:p-[50px] p-5 bg-transparent sm:shadow-2xl">
         {/* LeftContainer */}
@@ -19,30 +72,41 @@ export default function SignUp() {
       <div className="w-full sm:max-w-lg p-5">
         {/* Signup */}
         <h2 className="text-2xl text-white font-bold mb-6">Sign Up</h2>
-        <form>
+        <form  onSubmit={handleSubmit}>
           <div className="mb-4">
             <input
+            value={formData.name}
               placeholder="Name"
               type="text"
               id="name"
+              name="name"
               className="w-full px-3 py-2 border-b bg-transparent focus:outline-none placeholder:text-black"
               pattern="[A-Za-z ]+"
               required
+              onChange={(e)=> setFormData({...formData,name:e.target.value})}
             />
           </div>
           <div className="mb-4">
             <input
+             value={formData.date}
               type="date"
               id="dob"
               className="w-full px-3 py-2 border-b bg-transparent focus:outline-none "
               required
+              onChange={(e) =>
+                setFormData({ ...formData, date: e.target.value })
+              }
             />
           </div>
           <div className="mb-4">
             <select
+              value={formData.class}
               id="class"
               className="w-full px-3 py-2 border-b bg-transparent focus:outline-none  custom-select"
               required
+              onChange={(e) =>
+                setFormData({ ...formData, class: e.target.value })
+              }
             >
               <option value="">Select Class</option>
               <option value="I">I</option>
@@ -61,9 +125,13 @@ export default function SignUp() {
           </div>
           <div className="mb-4">
             <select
+              value={formData.division}
               id="division"
               className="w-full px-3 py-2 border-b bg-transparent focus:outline-none  custom-select"
               required
+              onChange={(e) =>
+                setFormData({ ...formData, division: e.target.value })
+              }
             >
               <option value="">Select Division</option>
               <option value="A">A</option>
@@ -77,25 +145,29 @@ export default function SignUp() {
               <input
                 type="radio"
                 id="male"
+                value="male"
                 name="gender"
                 className="mr-2"
                 required
+                onChange={(e) =>
+                  setFormData({ ...formData, gender: e.target.value })
+                }
               />
-              <label htmlFor="male" >
-                Male
-              </label>
+              <label htmlFor="male">Male</label>
             </div>
             <div className="flex items-center">
               <input
                 type="radio"
                 id="female"
+                value="female"
                 name="gender"
                 className="mr-2"
                 required
+                onChange={(e) =>
+                  setFormData({ ...formData, gender: e.target.value })
+                }
               />
-              <label htmlFor="female" >
-                Female
-              </label>
+              <label htmlFor="female">Female</label>
             </div>
           </div>
           <button
