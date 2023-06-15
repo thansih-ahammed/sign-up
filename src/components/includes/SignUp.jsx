@@ -2,55 +2,46 @@ import React from "react";
 
 export default function SignUp() {
   return (
-    <section className="h-screen justify-center items-center bg-gradient-to-br from-blue-500 to-green-500  grid  grid-cols-1 sm:grid-cols-2  gap-2">
+    <section className="h-screen  px-4 items-center bg-gradient-to-br from-blue-500 to-green-500 flex flex-wrap justify-around  ">
       {/* Container */}
-
-      <div className="max-w-2xl mx-auto p-[50px] bg-transparent shadow-2xl">
+      <div className="sm:max-w-xl  sm:p-[50px] p-5 bg-transparent sm:shadow-2xl">
         {/* LeftContainer */}
-
-        <h1 className="text-3xl text-white  sm:max-w-md font-bold">Get in Touch</h1>
-        <p className=" text-white font-extralight mt-4">
+        <h1 className="text-3xl text-white mx-auto sm:max-w-md font-bold">
+          Get in Touch
+        </h1>
+        <p className="text-white mt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
           reiciendis mollitia velit eveniet tempora praesentium quod molestias
           illum voluptatem beatae sit id in doloribus sint voluptatibus ipsum
           iure cum dignissimos.
         </p>
       </div>
-
-      <div className="max-w-sm  mx-auto p-5">
+      <div className="w-full sm:max-w-lg p-5">
         {/* Signup */}
-        <h2 className="text-2xl text-white font-bold mb-6">Login</h2>
+        <h2 className="text-2xl text-white font-bold mb-6">Sign Up</h2>
         <form>
           <div className="mb-4">
-            <label htmlFor="name" className="block font-medium mb-1">
-              Name:
-            </label>
-            <input 
+            <input
+              placeholder="Name"
               type="text"
               id="name"
-              className="w-full px-3 py-2 border bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border-b bg-transparent focus:outline-none placeholder:text-black"
               pattern="[A-Za-z ]+"
               required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="dob" className="block font-medium mb-1">
-              Date of Birth:
-            </label>
             <input
               type="date"
               id="dob"
-              className="w-full px-3 py-2 border bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border-b bg-transparent focus:outline-none "
               required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="class" className="block font-medium mb-1">
-              Class:
-            </label>
             <select
               id="class"
-              className="w-full px-3 py-2 border bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border-b bg-transparent focus:outline-none  custom-select"
               required
             >
               <option value="">Select Class</option>
@@ -69,12 +60,9 @@ export default function SignUp() {
             </select>
           </div>
           <div className="mb-4">
-            <label htmlFor="division" className="block font-medium mb-1">
-              Division:
-            </label>
             <select
               id="division"
-              className="w-full px-3 py-2 border bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border-b bg-transparent focus:outline-none  custom-select"
               required
             >
               <option value="">Select Division</option>
@@ -84,7 +72,7 @@ export default function SignUp() {
             </select>
           </div>
           <div className="mb-4">
-            <p className="block font-medium mb-1">Gender:</p>
+            <p className="block font-medium mb-1 ">Gender:</p>
             <div className="flex items-center">
               <input
                 type="radio"
@@ -93,7 +81,9 @@ export default function SignUp() {
                 className="mr-2"
                 required
               />
-              <label htmlFor="male">Male</label>
+              <label htmlFor="male" >
+                Male
+              </label>
             </div>
             <div className="flex items-center">
               <input
@@ -103,12 +93,14 @@ export default function SignUp() {
                 className="mr-2"
                 required
               />
-              <label htmlFor="female">Female</label>
+              <label htmlFor="female" >
+                Female
+              </label>
             </div>
           </div>
           <button
             type="submit"
-            className="w-full bg-transparent  border  text-white py-2 px-4 rounded-md hover:bg-green-400"
+            className="w-full bg-transparent border py-2 px-4 rounded-md hover:bg-green-400"
           >
             Submit
           </button>
