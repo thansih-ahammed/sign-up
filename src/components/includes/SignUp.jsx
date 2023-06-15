@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import 'sweetalert2/dist/sweetalert2.min.css';
+
 
 export default function SignUp() {
 
@@ -18,7 +18,7 @@ export default function SignUp() {
   
     try {
       // Send POST request to server
-      const response = await axios.post('YOUR_API_ENDPOINT', {
+      const response = await axios.post('https://jsonplaceholder.typicode.com/posts/1/comments', {
         name,
         date,
         class: selectedClass,
