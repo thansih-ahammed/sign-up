@@ -44,14 +44,14 @@ function App() {
         <Router>
           <Routes>
             <Route
-              path="sign-up/"
+              path="/"
               element={
                 <Navigate to="auth/login/" element={<Login />} />
               }
             />
-            <Route exact path="sign-up/auth/create" element={<SignUp />} />
-            <Route exact path="sign-up/auth/login" element={<Login />} />
-            <Route exact path="sign-up/main" element={<Register />} />
+            <Route exact path="auth/create" element={<SignUp />} />
+            <Route exact path="auth/login" element={<Login />} />
+            <Route exact path="main" element={<Register />} />
 
             <Route path="*" element={<NoMatch />} />
           </Routes>
