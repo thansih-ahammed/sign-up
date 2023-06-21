@@ -1,4 +1,4 @@
-import React, { useState ,useContext } from "react";
+import React, { useState, useContext } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,42 +6,41 @@ import { Helmet } from "react-helmet";
 import { UserContext } from "../../App"; // Import the UserContext
 
 export default function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [message, setMessage] = useState("");
-    const navigate = useNavigate();
-    const { updateUserData } = useContext(UserContext);
-  
-    const handleSubmit = async (event) => {
-      event.preventDefault();
-      setMessage("");
-      
-      axios
-        .post("https://traveller.talrop.works/api/v1/auth/token/", {
-          username: email,
-          password,
-        })
-        .then((response) => {
-          console.log(response.data);
-          let data = response.data;
-          localStorage.setItem("user_data", JSON.stringify(data));
-          updateUserData({ type: "LOGIN", payload: data });
-          navigate("/main"); // Navigate to the register page
-        })
-        .catch((error) => {
-          console.log(error.response.data);
-          if (error.response.status === 401) {
-            setMessage(error.response.data.detail);
-          } else {
-            if (error.response.data.username === "username") {
-              setMessage("email:field is required");
-            } else {
-              setMessage("email & password field is required");
-            }
-          }
-        });
-    };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const { updateUserData } = useContext(UserContext);
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setMessage("");
+
+    axios
+      .post("https://traveller.talrop.works/api/v1/auth/token/", {
+        username: email,
+        password,
+      })
+      .then((response) => {
+        console.log(response.data);
+        let data = response.data;
+        localStorage.setItem("user_data", JSON.stringify(data));
+        updateUserData({ type: "LOGIN", payload: data });
+        navigate("/main"); // Navigate to the register page
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        if (error.response.status === 401) {
+          setMessage(error.response.data.detail);
+        } else {
+          if (error.response.data.username === "username") {
+            setMessage("email:field is required");
+          } else {
+            setMessage("email & password field is required");
+          }
+        }
+      });
+  };
 
   return (
     <section className="sm:h-screen px-4 items-center bg-gradient-to-br from-blue-500 to-green-500 flex flex-wrap justify-around">
@@ -73,7 +72,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button 
+          <button
             type="submit"
             className="w-full bg-transparent border py-2 px-4 rounded-md hover:bg-green-400"
           >
@@ -82,7 +81,11 @@ export default function Login() {
         </form>
         <p className="text-white mt-4">
           Don't have an account? <Link to="/auth/create/">Sign up</Link>
-          {message && <small className="text-sm text-red-600 mb-[25px] items-center">{message}</small>}
+          {message && (
+            <small className="text-sm text-red-600 mb-[25px] items-center">
+              {message}
+            </small>
+          )}
         </p>
       </div>
     </section>
