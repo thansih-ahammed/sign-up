@@ -41,11 +41,11 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Navigate to="/auth/login/" element={<Login />} />}
+          element={<Navigate to="/sign-up/auth/login/" element={<Login />} />}
         />
-        <Route path="/auth/create" element={<SignUp />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/main" element={<Register />} />
+        <Route path="/sign-up/auth/create" element={<SignUp />} />
+        <Route path="/sign-up/auth/login" element={<Login />} />
+        <Route path="/sign-up/main" element={<Register />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Swal from 'sweetalert2';
 import axios from 'axios';
-
+import '../../App.css'
 
 export default function Register() {
 
@@ -102,7 +102,7 @@ export default function Register() {
             <select
               value={formData.class}
               id="class"
-              className="w-full px-3 py-2 border-b bg-transparent focus:outline-none  custom-select"
+              className="w-full px-3 py-2 border-b bg-transparent focus:outline-none dropdown custom-select"
               required
               onChange={(e) =>
                 setFormData({ ...formData, class: e.target.value })
