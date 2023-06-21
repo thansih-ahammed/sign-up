@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+=======
+  
+>>>>>>> ae0ad83e45413263bd8b5d73ff5d8ca223ab1be7
   "name": "assignment",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+<<<<<<< HEAD
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -15,6 +20,23 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+=======
+    "components": "^0.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.13.0",
+    "react-scripts": "5.0.1",
+    "styled": "^1.0.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.7.12",
+    "tailwind": "^4.0.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+     "deploy": "gh-pages -d build",
+>>>>>>> ae0ad83e45413263bd8b5d73ff5d8ca223ab1be7
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,6 +61,10 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
+=======
+    "gh-pages": "^5.0.0",
+>>>>>>> ae0ad83e45413263bd8b5d73ff5d8ca223ab1be7
     "tailwindcss": "^3.3.2"
   }
 }
